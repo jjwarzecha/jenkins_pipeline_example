@@ -19,9 +19,7 @@ pipeline {
             steps {
                 input message: "deploy to prod?"
                 sh '''
-                  app_lines=`cat app.sh | wc -l`
-                  cov_lines=`cat ${BUILD_ID}.cov | wc -l`
-                  echo The app has `expr $app_lines - $cov_lines` lines uncovered > ${BUILD_ID}.rpt
+                  echo The app generates file > ${BUILD_ID}.rpt
                   cat ${BUILD_ID}.rpt
                   echo "We are in build ${currentBuild.number}"
                   echo "Our current result is ${currentBuild.currentResult}"      
