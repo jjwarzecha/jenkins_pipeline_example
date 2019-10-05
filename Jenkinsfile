@@ -11,6 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
+                  sudo yum install zip -y
                   zip -r application.zip ./app
                 '''
             }
