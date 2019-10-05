@@ -11,13 +11,13 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                  sudo yum install zip -y
-                  zip -r application.zip ./app
+                  cat ./app.sh
                 '''
             }
         }
-        stage('Coverage'){
+        stage('Prod'){
             steps {
+                input message: "deploy to prod?"
                 sh '''
                   app_lines=`cat app.sh | wc -l`
                   cov_lines=`cat ${BUILD_ID}.cov | wc -l`
