@@ -14,7 +14,8 @@ pipeline {
             steps {
                 sh '''
                   for n in This That "The Other"
-                   do if grep $n app.sh >> 8.cov
+                   #do if grep $n app.sh >> 8.cov
+                   do grep $n app.sh >> 8.cov
                     #  then exit 1
                     #fi
                   done
