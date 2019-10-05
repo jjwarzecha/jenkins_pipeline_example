@@ -19,8 +19,8 @@ pipeline {
             steps {
                 input message: "deploy to prod?"
                 sh '''
-                  echo The app generates file > ${BUILD_ID}.rpt
-                  cat ${BUILD_ID}.rpt
+                  echo The app generates file > ${currentBuild.number}.rpt
+                  cat ${currentBuild.number}.rpt
                   echo "We are in build ${currentBuild.number}"
                   echo "Our current result is ${currentBuild.currentResult}"      
                 '''
