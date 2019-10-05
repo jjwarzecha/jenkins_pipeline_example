@@ -4,21 +4,14 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                  echo This > app.sh
-                  echo That >> app.sh
-	          echo The Other >> app.sh
+                  ls -lah > app.sh
                 '''
             }
         }
         stage('Test') {
             steps {
                 sh '''
-                  for n in This That "The Other"
-                   #do if grep $n app.sh >> 8.cov
-                   do grep $n app.sh >> 8.cov
-                    #  then exit 1
-                    #fi
-                  done
+                  zip -r application.zip ./app
                 '''
             }
         }
